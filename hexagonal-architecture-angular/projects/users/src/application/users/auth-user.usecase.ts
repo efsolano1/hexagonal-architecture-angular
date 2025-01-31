@@ -1,23 +1,23 @@
-import { inject, Injectable } from "@angular/core";
-import { State } from "../../domain/state";
-import { Observable, Subscription, tap } from "rxjs";
-import { IAuthResponseDTO } from "../../domain/model/auth.response.model";
-import { IUserRequestDTO } from "../../domain/model/user.request.model";
-import { AuthenticateService } from "../../infrastructure/services/authenticate.service";
-import { TokenService } from "shared";
-import { Router } from "@angular/router";
+import { inject, Injectable } from '@angular/core';
+import { State } from '../../domain/state';
+import { Observable, Subscription, tap } from 'rxjs';
+import { IAuthResponseDTO } from '../../domain/model/auth.response.model';
+import { IUserRequestDTO } from '../../domain/model/user.request.model';
+import { AuthenticateService } from '../../infrastructure/services/authenticate.service';
+import { TokenService } from 'shared';
+import { Router } from '@angular/router';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthUserUsecase {
-    private readonly _service = inject(AuthenticateService);
-    private readonly _state = inject(State);
-    private subscriptions: Subscription;
-    private tokenService = inject(TokenService);
-    public router = inject(Router);
+  private readonly _service = inject(AuthenticateService);
+  private readonly _state = inject(State);
+  private subscriptions: Subscription;
+  private tokenService = inject(TokenService);
+  public router = inject(Router);
 
-    //#region Observables
+  //#region Observables
   user$(): Observable<IAuthResponseDTO> {
     return this._state.users.user.$();
   }
@@ -34,24 +34,17 @@ export class AuthUserUsecase {
 
   execute(user: IUserRequestDTO): void {
     this.subscriptions.add(
-      this._service.login(user)
+      this._service
+        .login(user)
         .pipe(
-          tap(result => {
+          tap((result) => {
             this._state.users.user.set(result);
             localStorage.setItem('email', user.email);
             this.tokenService.handleToken(result.token);
             this.router.navigate(['app/dashboard']);
-
-            // const users = this._state.users.user.snapshot();
-            // this._state.users.user.set([...users, result])
           })
         )
         .subscribe()
     );
   }
-  //#endregion
-
-  //#region Private Methods
-  //#endregion
-
 }

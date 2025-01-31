@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 .content {
   width: 100%;
   position: relative;
   text-align: right;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 
   &__navbar {
     background-color: transparent;
@@ -45,19 +45,17 @@
       color: #333;
       padding: 10px 15px;
       display: flex;
-      align-items: center; 
+      align-items: center;
       border-radius: 4px;
     }
 
     &-text {
       margin-right: 5px;
-        cursor: pointer;
+      cursor: pointer;
     }
 
     &-image-container {
       position: relative;
-      /* display: flex;  Alinea la imagen y el texto logout */
-      /* align-items: center;  Centra verticalmente los elementos */
     }
 
     &-icon {
@@ -81,7 +79,7 @@
       z-index: 1;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       white-space: nowrap;
-        cursor: pointer;
+      cursor: pointer;
     }
   }
 

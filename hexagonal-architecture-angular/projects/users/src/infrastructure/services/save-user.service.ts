@@ -10,11 +10,9 @@ import { environment } from 'shared';
 })
 export class SaveUserService {
   private http = inject(HttpClient);
-  private tokenKey = 'authToken';
-  private apiUrl = 'http://localhost:8080';
 
   constructor() {}
-   saveUser(user: IUserRequestDTO): Observable<IUserResponseDTO> {
+  saveUser(user: IUserRequestDTO): Observable<IUserResponseDTO> {
     return this.http.post<IUserResponseDTO>(
       `${environment.baseUrl}/user/register`,
       user

@@ -13,7 +13,5 @@ export * from './infrastructure/services/token.service';
 export * from './infrastructure/interceptors/auth.interceptor';
 export * from './infrastructure/guards/admin.guard';
 export * from './infrastructure/environments/environment';
-
-
-
-
+export * from './infrastructure/ui/components/form-input/form-input.component';
+export * from './infrastructure/ui/components/button/button.component';

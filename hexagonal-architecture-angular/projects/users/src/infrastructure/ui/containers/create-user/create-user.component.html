@@ -1,5 +1,8 @@
-<lib-button-create (actionClick)="actionClick()" [title]="title" [subtitle]="subtitle" [button_name]="button_name"
-    [icon]="icon"></lib-button-create>
+<lib-button-create (actionClick)="actionClick()" 
+  [title]="title" 
+  [subtitle]="subtitle" 
+  [button_name]="button_name"
+  [icon]="icon"></lib-button-create>
 @if(showModal){
 <lib-modal-create [registerForm]="registerForm" (submit)="createUser($event)"></lib-modal-create>
 }

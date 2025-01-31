@@ -26,6 +26,7 @@ export class SaveUserUseCase {
   destroySubscriptions(): void {
     this.subscriptions.unsubscribe();
   }
+  
   execute(user: IUserRequestDTO): void {
         this.subscriptions.add(
           this._service.saveUser(user)

@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,
-    baseUrl: 'http://localhost:8080',
-    // useHash: true,
-  };
+  production: false,
+  baseUrl: 'http://localhost:8080',
+  // useHash: true,
+};

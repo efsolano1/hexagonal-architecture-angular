@@ -1,21 +1,20 @@
-<div class="content">
-  <nav class="navbar content__navbar">
+<div class="content" role="main">
+  <nav class="content__navbar" role="navigation" aria-label="User Navigation">
     <div class="container-fluid">
-      <ul class="nav navbar-nav navbar-right content__navbar-nav">
-        <li class="content__navbar-item">
-          <div class="content__navbar-link">
-            <span class="content__navbar-text">{{username}}</span>
-            <div class="content__navbar-image-container">
+      <ul class="content__navbar-nav" role="list">
+        <li class="content__navbar-item" role="listitem">
+          <div class="content__navbar-link" role="presentation">
+            <span class="content__navbar-text" role="text" >{{ username }}</span>
+            <div class="content__navbar-image-container" role="button" tabindex="0" aria-haspopup="true" [attr.aria-expanded]="showLogout" (click)="toggleLogout($event)">
               <img
-                src="../../../assets/images/login1.jpg"
+                src="../../assets/images/login1.jpg"
                 alt="User Image"
                 class="content__navbar-icon"
-                (click)="toggleLogout($event)"
+                aria-hidden="true"
               />
-              @if(showLogout){
-                <div class="content__navbar-logout" (click)="logout()">Logout</div>
+              @if(showLogout) {
+              <div class="content__navbar-logout" (click)="logout()" role="menuitem">Logout</div>
               }
-             
             </div>
           </div>
         </li>

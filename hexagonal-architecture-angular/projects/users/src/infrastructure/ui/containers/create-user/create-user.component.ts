@@ -8,7 +8,6 @@ import { IUserResponseDTO } from '../../../../domain/model/user.response.model';
 import { Observable, of, Subject, switchMap, takeUntil, tap } from 'rxjs';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'lib-create-user',
   imports: [ButtonCreateComponent, ModalCreateComponent, AlertComponent],

@@ -1,12 +1,11 @@
-import { inject, Injectable } from "@angular/core";
-import { StateFactory } from "./state.factory";
-import { BehaviorSubject } from "rxjs";
-import { IAuthResponseDTO } from "../model/auth.response.model";
-import { IUserResponseDTO } from "../model/user.response.model";
-
+import { inject, Injectable } from '@angular/core';
+import { StateFactory } from './state.factory';
+import { BehaviorSubject } from 'rxjs';
+import { IAuthResponseDTO } from '../model/auth.response.model';
+import { IUserResponseDTO } from '../model/user.response.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersState {
   private readonly _factory = inject(StateFactory);
@@ -14,14 +13,12 @@ export class UsersState {
   //#region Subjects
   private readonly user$ = new BehaviorSubject<IAuthResponseDTO>(null);
   private readonly userSave$ = new BehaviorSubject<IUserResponseDTO>(null);
-  // private readonly usesaefsdffr$ = new BehaviorSubject<IAuthResponseDTO>(null);
   //#endregion
 
   store() {
     return {
       user: this._factory.state(this.user$),
-      userSave: this._factory.state(this. userSave$),
-      // usesaefsdffr: this._factory.state(this.usesaefsdffr$)
-    }
+      userSave: this._factory.state(this.userSave$),
+    };
   }
 }

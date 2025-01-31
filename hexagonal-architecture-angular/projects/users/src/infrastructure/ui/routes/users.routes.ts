@@ -10,18 +10,18 @@ export const usersRoutes: Routes = [
     component: LoginUserComponent,
   },
   {
-    path:'app',
-    component:MainComponent,
+    path: 'app',
+    component: MainComponent,
     canActivate: [adminGuard],
-    children:[
+    children: [
       {
-        path:'dashboard',
-        component:DashboardComponent
+        path: 'dashboard',
+        component: DashboardComponent,
       },
       {
-        path:'users',
-        component:CreateUserComponent
-      }
-    ]
-  }
+        path: 'users',
+        component: CreateUserComponent,
+      },
+    ],
+  },
 ];

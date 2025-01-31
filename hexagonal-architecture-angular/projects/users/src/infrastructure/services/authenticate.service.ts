@@ -10,12 +10,13 @@ import { environment } from 'shared';
 })
 export class AuthenticateService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:8080';
 
   constructor() {}
 
   login(user: IUserRequestDTO): Observable<IAuthResponseDTO> {
-    return this.http.post<IAuthResponseDTO>(`${environment.baseUrl}/user/login`, user);
+    return this.http.post<IAuthResponseDTO>(
+      `${environment.baseUrl}/user/login`,
+      user
+    );
   }
-
 }

@@ -6,20 +6,19 @@ import { LoaderComponent } from 'shared';
   selector: 'lib-dashboard',
   imports: [LoaderComponent],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent {
   loader: boolean = false;
-  constructor(){
-      of(1)
-          .pipe(
-            tap(() => (this.loader = true)),
-            delay(1500),
-            tap(() => {
-              this.loader = false;
-            })
-          )
-          .subscribe();
+  constructor() {
+    of(1)
+      .pipe(
+        tap(() => (this.loader = true)),
+        delay(1500),
+        tap(() => {
+          this.loader = false;
+        })
+      )
+      .subscribe();
   }
-
 }

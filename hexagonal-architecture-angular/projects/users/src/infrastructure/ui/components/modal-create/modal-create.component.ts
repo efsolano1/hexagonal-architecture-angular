@@ -1,15 +1,16 @@
-import { Component, EventEmitter, input, output, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, input, OnDestroy, output, Output } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
-import { AlertService } from 'shared';
+import { AlertService, ButtonComponent, FormInputComponent } from 'shared';
 
 @Component({
   selector: 'lib-modal-create',
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule, FormsModule, CommonModule, FormInputComponent,ButtonComponent],
   templateUrl: './modal-create.component.html',
   styleUrl: './modal-create.component.scss',
 })
-export class ModalCreateComponent {
+export class ModalCreateComponent implements OnDestroy{
   private destroy$ = new Subject<void>();
   // @Output() close = new EventEmitter<void>();
 

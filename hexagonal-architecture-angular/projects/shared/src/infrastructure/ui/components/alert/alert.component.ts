@@ -7,18 +7,18 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './alert.component.html',
   styleUrl: './alert.component.scss',
 })
-export class AlertComponent implements OnInit{
+export class AlertComponent implements OnInit {
   @Input() message = '';
   @Input() type = 'success';
   @Output() close = new EventEmitter<void>();
 
   timeoutId: any;
 
-    ngOnInit(): void {
-        this.timeoutId = setTimeout(()=>{
-          this.closeAlert();
-       },2000)
-    }
+  ngOnInit(): void {
+    this.timeoutId = setTimeout(() => {
+      this.closeAlert();
+    }, 2000);
+  }
 
   closeAlert() {
     clearTimeout(this.timeoutId);

@@ -32,12 +32,12 @@
               },
               {
                 "glob": "**/*",
-                "input": "projects/users/src/assets",
+                "input": "projects/users/src/infrastructure/ui/assets",
                 "output": "/assets"
               },
               {
                 "glob": "**/*",
-                "input": "projects/shared/src/assets",
+                "input": "projects/shared/src/infrastructure/ui/assets",
                 "output": "/assets"
               }
             ],

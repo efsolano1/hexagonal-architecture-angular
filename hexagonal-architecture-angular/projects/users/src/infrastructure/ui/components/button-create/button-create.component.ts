@@ -14,7 +14,7 @@ export class ButtonCreateComponent {
   icon = input<string>();
   actionClick = output();
 
-  action(){
+  action() {
     this.actionClick.emit();
   }
 }

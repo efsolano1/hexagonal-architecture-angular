@@ -1,4 +1,4 @@
 export interface IUserRequestDTO {
-    email: string;
-    password: string;
-  }
+  email: string;
+  password: string;
+}

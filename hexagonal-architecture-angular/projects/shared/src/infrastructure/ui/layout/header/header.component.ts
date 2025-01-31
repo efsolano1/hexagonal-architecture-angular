@@ -33,8 +33,7 @@ export class HeaderComponent {
         tap(() => {
           this._logOutUseCase.execute();
           this.loader = false;
-        }),
-        
+        })
       )
       .subscribe();
   }

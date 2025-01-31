@@ -33,24 +33,20 @@ export class LoginUserComponent implements OnInit, OnDestroy {
   }
 
   loginUser(): void {
-    // this._useCase.execute(user);
     of(this._useCase.execute(this.loginForm.getRawValue()))
-    .pipe(
-      switchMap(()=>this.user$),
-      tap(response=>{
-        debugger
-        if(response?.token){
-          // localStorage.setItem('email', this.getEmail);
-          // this.router.navigate(['app/dashboard']);
-          return true;
-        }else{
-          return false;
-        }
-      })
-    )
-    .subscribe();
+      .pipe(
+        switchMap(() => this.user$),
+        tap((response) => {
+          debugger;
+          if (response?.token) {
+            return true;
+          } else {
+            return false;
+          }
+        })
+      )
+      .subscribe();
   }
-
 
   get getEmail(): string {
     return this.loginForm.value.email ?? '';
