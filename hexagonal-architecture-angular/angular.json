@@ -29,6 +29,16 @@
               {
                 "glob": "**/*",
                 "input": "projects/app/public"
+              },
+              {
+                "glob": "**/*",
+                "input": "projects/users/src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "projects/shared/src/assets",
+                "output": "/assets"
               }
             ],
             "styles": [

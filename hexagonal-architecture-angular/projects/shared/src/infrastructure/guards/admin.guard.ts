@@ -9,6 +9,6 @@ export const adminGuard: CanActivateFn = (route, state) => {
   if (tokenService.isAuthenticated()) {
     return true;
   }
-  router.navigate(['']);
+  router.navigate(['/login']);
   return false;
 };

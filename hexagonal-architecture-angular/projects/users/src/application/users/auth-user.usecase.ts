@@ -4,6 +4,8 @@ import { Observable, Subscription, tap } from "rxjs";
 import { IAuthResponseDTO } from "../../domain/model/auth.response.model";
 import { IUserRequestDTO } from "../../domain/model/user.request.model";
 import { AuthenticateService } from "../../infrastructure/services/authenticate.service";
+import { TokenService } from "shared";
+import { Router } from "@angular/router";
 
 @Injectable({
     providedIn: 'root'
@@ -12,6 +14,8 @@ export class AuthUserUsecase {
     private readonly _service = inject(AuthenticateService);
     private readonly _state = inject(State);
     private subscriptions: Subscription;
+    private tokenService = inject(TokenService);
+    public router = inject(Router);
 
     //#region Observables
   user$(): Observable<IAuthResponseDTO> {
@@ -34,7 +38,9 @@ export class AuthUserUsecase {
         .pipe(
           tap(result => {
             this._state.users.user.set(result);
-            debugger
+            localStorage.setItem('email', user.email);
+            this.tokenService.handleToken(result.token);
+            this.router.navigate(['app/dashboard']);
 
             // const users = this._state.users.user.snapshot();
             // this._state.users.user.set([...users, result])
