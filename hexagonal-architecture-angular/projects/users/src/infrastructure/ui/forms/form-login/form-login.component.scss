@@ -1,50 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+@use "../../styles/mixins.scss" as mixins;
+@use "../../styles/variables.scss" as variables;
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
 
 body {
   font-family: "Open Sans", sans-serif;
 }
 
-/* Login Page Block */
 .login-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include mixins.container-display;
+  @include mixins.container(center);
   min-height: 100vh;
   background: #d9edff;
 }
 
-/* Login Box Block */
 .login-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include mixins.container-display;
+  // display: flex;
+  @include mixins.container(space-between);
   flex-direction: row-reverse;
   max-width: 1000px;
-  background-color: white;
+  background-color: variables.$white;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.16);
   overflow: hidden;
   margin: 0 auto;
   border-radius: 12px;
 
   &__illustration-wrapper {
-    /* Login Box Element: illustration-wrapper */
-    display: flex;
+    @include mixins.container-display;
     align-items: flex-end;
     max-width: 800px;
     min-height: 100%;
   }
 
   &__illustration-img {
-    /* Login Box Element: illustration-img */
     display: block;
     width: 100%;
     height: 542px;
-    background-color: black;
+    background-color: variables.$background-black;
   }
 }
 
-/* Login Form Block */
 .login-form {
   flex: 1 0 100%;
   max-width: 480px;
@@ -52,7 +47,6 @@ body {
   padding: 60px;
 
   &__title {
-    /* Login Form Element: title */
     color: #333333;
     font-family: "Josefin Sans", sans-serif;
     font-size: 42px;
@@ -62,25 +56,22 @@ body {
   }
 
   &__subtitle {
-    /* Login Form Element: subtitle */
     margin-bottom: 30px;
   }
 
   &__item {
-    /* Login Form Element: item */
-    text-align: left;
+    @include mixins.container-text-align(left);
     margin-bottom: 20px;
 
     &--checkbox {
-      /* Login Form Element: item, Modifier: checkbox */
-      display: flex;
+      @include mixins.container-display;
+      @include mixins.container(start);
+      // align-items: center;
       margin-bottom: 20px;
-      align-items: center;
     }
   }
 
   &__label {
-    /* Login Form Element: label */
     padding-bottom: 12px;
     font-size: 14px;
     font-weight: 500;
@@ -89,7 +80,6 @@ body {
     display: block;
 
     &--checkbox {
-      /* Login Form Element: label, Modifier: checkbox */
       padding-bottom: 0px;
       margin-bottom: 0px;
       margin-left: 8px;
@@ -97,7 +87,6 @@ body {
   }
 
   &__input {
-    /* Login Form Element: input */
     width: 100%;
     padding: 12px 15px;
     margin-bottom: 20px;
@@ -107,7 +96,6 @@ body {
     box-sizing: border-box;
 
     &:focus {
-      /* Login Form Element: input, State: focus */
       border-color: #1890ff;
       outline: none;
       box-shadow: 0 0 4px rgba(24, 144, 255, 0.5);
@@ -115,32 +103,28 @@ body {
   }
 
   &__checkbox {
-    /* Login Form Element: checkbox */
     max-width: 20px;
     margin-right: 8px;
   }
 
   &__button {
-    /* Login Form Element: button */
     height: 42px;
     letter-spacing: 1px;
     border-radius: 6px;
     width: 100%;
     background-color: #1890ff;
-    color: white;
+    color: variables.$white;
     font-size: 16px;
     font-weight: 550;
     border: none;
     cursor: pointer;
 
     &:hover {
-      /* Login Form Element: button, State: hover */
-      background-color: #40a9ff;
+      background-color: variables.$button-hover;
     }
   }
 }
 
-/* Responsive Design */
 @media screen and (max-width: 1023px) {
   .login-box {
     flex-direction: column;

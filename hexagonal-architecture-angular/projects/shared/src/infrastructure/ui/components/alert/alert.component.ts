@@ -17,11 +17,14 @@ export class AlertComponent implements OnInit {
   ngOnInit(): void {
     this.timeoutId = setTimeout(() => {
       this.closeAlert();
-    }, 2000);
+    }, 1000);
   }
 
   closeAlert() {
     clearTimeout(this.timeoutId);
+    this.close.emit();
+  }
+  closeAlert2() {
     this.close.emit();
   }
 }

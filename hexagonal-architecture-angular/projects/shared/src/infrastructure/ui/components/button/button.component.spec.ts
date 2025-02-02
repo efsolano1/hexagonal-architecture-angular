@@ -8,9 +8,8 @@ describe('ButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ButtonComponent]
-    })
-    .compileComponents();
+      imports: [ButtonComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ButtonComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,18 @@ describe('ButtonComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit buttonClick event when onButtonClick is called', () => {
+    const buttonClickSpy = spyOn(component.buttonClick, 'emit');
+    component.onButtonClick();
+    expect(buttonClickSpy).toHaveBeenCalled();
+  });
+
+  it('should emit buttonClick event when button is clicked', () => {
+    const buttonClickSpy = spyOn(component.buttonClick, 'emit');
+    const button = fixture.componentInstance;
+    button.onButtonClick();
+    expect(buttonClickSpy).toHaveBeenCalled();
   });
 });

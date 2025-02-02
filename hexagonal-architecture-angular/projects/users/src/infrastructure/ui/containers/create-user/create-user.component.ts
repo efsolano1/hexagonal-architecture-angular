@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
   selector: 'lib-create-user',
   imports: [ButtonCreateComponent, ModalCreateComponent, AlertComponent],
   templateUrl: './create-user.component.html',
-  styleUrl: './create-user.component.css',
 })
 export class CreateUserComponent implements OnInit, OnDestroy {
   private readonly _useCase = inject(SaveUserUseCase);
@@ -42,11 +41,13 @@ export class CreateUserComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe((alert) => {
         if (alert) {
+          debugger;
           this.showAlert = true;
           this.alertMessage = alert.message;
           this.alertType = alert.type;
         } else {
           this.showAlert = false;
+          this.alertService.closeAlert();
         }
       });
   }
@@ -60,6 +61,7 @@ export class CreateUserComponent implements OnInit, OnDestroy {
 
   actionClick() {
     this.showModal = true;
+    this.showAlert = false;
   }
 
   createUser(form: FormGroup): void {
@@ -73,6 +75,7 @@ export class CreateUserComponent implements OnInit, OnDestroy {
               'El usuario se ha registrado correctamente.',
               'success'
             );
+            this.registerForm.reset();
             return true;
           } else {
             return false;
@@ -87,6 +90,6 @@ export class CreateUserComponent implements OnInit, OnDestroy {
 
   closeAlert() {
     this.showAlert = false;
-    this.alertService.closeAlert();
+    this.showModal = false;
   }
 }

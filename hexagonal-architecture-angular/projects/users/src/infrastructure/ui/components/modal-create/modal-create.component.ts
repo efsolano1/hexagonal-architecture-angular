@@ -12,35 +12,25 @@ import { AlertService, ButtonComponent, FormInputComponent } from 'shared';
 })
 export class ModalCreateComponent implements OnDestroy{
   private destroy$ = new Subject<void>();
-  // @Output() close = new EventEmitter<void>();
 
   registerForm = input<FormGroup>();
   submit = output<FormGroup>();
   close = output<void>();
 
   constructor(private alertService: AlertService) {
-    this.alertService.alert$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((alert) => {
-        if (alert) {
-          this.close.emit();
-        }
-      });
   }
   onSubmit() {
-    console.log('hola desde modal');
     if (this.registerForm().valid) {
       this.submit.emit(this.registerForm());
       this.close.emit();
     } else {
-      this.alertService.showAlert(
-        'Error',
-        'Por favor, rellene todos los campos.'
-      );
+      debugger;
+      this.close.emit();
     }
   }
 
   onNoClick(): void {
+    debugger;
     this.close.emit();
   }
 

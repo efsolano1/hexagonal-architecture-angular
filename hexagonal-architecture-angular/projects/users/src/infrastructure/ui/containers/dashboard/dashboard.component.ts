@@ -5,8 +5,7 @@ import { LoaderComponent } from 'shared';
 @Component({
   selector: 'lib-dashboard',
   imports: [LoaderComponent],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css',
+  templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent {
   loader: boolean = false;
